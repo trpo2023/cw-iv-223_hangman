@@ -18,4 +18,61 @@ int main() {
 	int x = rand() % 3;
 	string wordToGuess = word[x].first; // слово для угадывания
 	string worddiscription = word[x].second; // зописание к слову
+
+	switch (wrongGuesses) {
+        case 1:
+            cout << "   ___________" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |         O" << endl;
+            cout << "   |" << endl;
+            cout << "   |" << endl;
+            cout << "___|___" << endl;
+            break;
+
+        case 2:
+            cout << "   ___________" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |         O" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |" << endl;
+            cout << "___|___" << endl;
+            break;
+
+        case 3:
+            cout << "   ___________" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |         O" << endl;
+            cout << "   |        /|" << endl;
+            cout << "   |" << endl;
+            cout << "___|___" << endl;
+            break;
+
+        case 4:
+            cout << "   ___________" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |         O" << endl;
+            cout << "   |        /|\\" << endl;
+            cout << "   |" << endl;
+            cout << "___|___" << endl;
+            break;
+
+        case 5:
+            cout << "   ___________" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |         O" << endl;
+            cout << "   |        /|\\" << endl;
+            cout << "   |        /" << endl;
+            cout << "___|___" << endl;
+            break;
+
+        case 6:
+            cout << "   ___________" << endl;
+            cout << "   |         |" << endl;
+            cout << "   |         O" << endl;
+            cout << "   |        /|\\" << endl;
+            cout << "   |        / \\" << endl;
+            cout << "___|___" << endl;
+            break;
+        }
+
 }
