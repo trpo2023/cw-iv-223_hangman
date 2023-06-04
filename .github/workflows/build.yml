@@ -14,10 +14,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Set up C++ environment
-      uses: actions/setup-cpp@v2
-
+      
     - name: Build and run
       run: |
         g++ -Wall -Wextra -o main main.cpp
