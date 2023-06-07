@@ -27,7 +27,7 @@ int main() {
     cout << "Угадайте слово: " << endl;
     cout << worddiscription << endl;
     while (wrongGuesses < MAX_TRIES && !gameWon) {
-        for (int i = 0; i < wordToGuess.length(); i++) {
+        for (size_t i = 0; i < wordToGuess.length(); i++) {
             if (lettersGuessed.find(wordToGuess[i]) != string::npos)
                 cout << wordToGuess[i] << " ";
             else
@@ -46,7 +46,7 @@ int main() {
 
         if (wordToGuess.find(guess) != string::npos) {
             cout << "Верно!" << endl;
-            for (int i = 0; i < wordToGuess.size(); i++)
+            for (size_t i = 0; i < wordToGuess.size(); i++)
                 if (wordToGuess[i] == guess)
                     lettersGuessed += guess;
             if (lettersGuessed.length() == wordToGuess.length())
