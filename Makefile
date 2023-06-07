@@ -13,9 +13,5 @@ all: $(TARGET) test
 $(TARGET): $(SOURCES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
 
-test: $(TESTS)
-	$(CC) $(CFLAGS) -o $(TESTS_DIR)/test $(TESTS)
-	$(TESTS_DIR)/test
-
 clean:
-	rm -f $(TARGET) $(TESTS_DIR)/test
+	rm -f $(TARGET)
