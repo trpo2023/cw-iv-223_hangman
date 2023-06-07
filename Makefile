@@ -5,7 +5,7 @@ TARGET = main
 SOURCES_DIR = src
 TESTS_DIR = tests
 
-SOURCES = $(SOURCES_DIR)/main.cpp
+SOURCES = src/main.cpp
 TESTS = $(TESTS_DIR)/Source.cpp
 
 all: $(TARGET) test
