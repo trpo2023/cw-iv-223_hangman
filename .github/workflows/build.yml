@@ -17,4 +17,4 @@ jobs:
       
     - name: Build and run
       run: |
-        g++ -Wall -Wextra -o main main.cpp
+        g++ -Wall -Wextra -o main src/main.cpp
