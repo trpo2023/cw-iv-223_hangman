@@ -1,17 +1,21 @@
 CC = g++
-CFLAGS = -Wall -Wextra
-
-TARGET = main
-SOURCES_DIR = src
+CFLAGS = -std=c++11
+SRC_DIR = src
 TESTS_DIR = tests
 
-SOURCES = src/main.cpp
-TESTS = $(TESTS_DIR)/Source.cpp
+all: main source
 
-all: $(TARGET) test
+main: $(SRC_DIR)/main.cpp
+$(CC) $(CFLAGS) -o main $<
 
-$(TARGET): $(SOURCES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
+source: $(TESTS_DIR)/Source.cpp
+$(CC) $(CFLAGS) -o source $<
 
 clean:
-	rm -f $(TARGET)
+rm -f main source
+
+run_main: main
+./main
+
+run_source: source
+./source
