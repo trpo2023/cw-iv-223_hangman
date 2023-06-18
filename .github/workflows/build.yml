@@ -24,7 +24,7 @@ jobs:
       run: make
         
     - name: Build tests
-      run: make tests
+      run: make source
       
     - name: Run tests
-      run: make run_tests
+      run: make run_source
