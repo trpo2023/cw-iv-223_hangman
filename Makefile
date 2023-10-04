@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cw-iv-223_hangman
+CMAKE_SOURCE_DIR = cw-iv-223_hangman
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cw-iv-223_hangman
+CMAKE_BINARY_DIR = cw-iv-223_hangman
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -97,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cw-iv-223_hangman/CMakeFiles /home/pavlo/7semak/cw-iv-223_hangman//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start cw-iv-223_hangman/CMakeFiles cw-iv-223_hangman//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cw-iv-223_hangman/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start cw-iv-223_hangman/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
