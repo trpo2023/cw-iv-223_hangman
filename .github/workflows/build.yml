@@ -21,10 +21,9 @@ jobs:
         git diff --exit-code
 
     - name: Build application
-      run: make
+      run: cmake .| make
         
-    - name: Build tests
-      run: make source
+    
       
     - name: Run tests
-      run: make run_source
+      run: ./bin/test_hangman | ./bin/hangman
