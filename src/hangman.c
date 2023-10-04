@@ -9,48 +9,39 @@ int is_english_letter(char c) {
     return isalpha(c) && islower(c);
 }
 
-int lookSym(const char *wordToGuess, char guessedLetters){
+int lookSym(const char* wordToGuess, char guessedLetters) {
     int wordLength = strlen(wordToGuess);
-    for (int i = 0; i < wordLength; i++)
-    {
+    for (int i = 0; i < wordLength; i++) {
         char letter = wordToGuess[i];
         int found = 0;
-        if (guessedLetters == letter){
+        if (guessedLetters == letter) {
             return 1;
         }
     }
     return 0;
 }
 
-char* displayWord(const char* wordToGuess, const char* guessedLetters)
-{
+char* displayWord(const char* wordToGuess, const char* guessedLetters) {
     int wordLength = strlen(wordToGuess);
     char* result = (char*)malloc(wordLength + 1);
 
-    for (int i = 0; i < wordLength; i++)
-    {
+    for (int i = 0; i < wordLength; i++) {
         char letter = wordToGuess[i];
         int found = 0;
 
-        for (int j = 0; guessedLetters[j] != '\0'; j++)
-        {
-            if (guessedLetters[j] == letter)
-            {
+        for (int j = 0; guessedLetters[j] != '\0'; j++) {
+            if (guessedLetters[j] == letter) {
                 found = 1;
                 break;
             }
         }
 
-        if (found)
-        {
+        if (found) {
             result[i] = letter;
-        }
-        else
-        {
+        } else {
             result[i] = '_';
         }
     }
-
     result[wordLength] = '\0';
     return result;
 }
