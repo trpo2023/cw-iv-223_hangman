@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = cw-iv-223_hangman
+CMAKE_SOURCE_DIR = src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = cw-iv-223_hangman
+CMAKE_BINARY_DIR = bin
 
 #=============================================================================
 # Targets provided globally by CMake.
