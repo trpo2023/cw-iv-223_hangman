@@ -156,7 +156,7 @@ int gamePlay(){
     }
 }
 
-int gameLoop(){
+void gameLoop(){
     while (1)
     {
         system("clear");
@@ -168,10 +168,10 @@ int gameLoop(){
         scanf("%d", &choice);
         if (choice == 1) {
             gamePlay();
-            return 0;
+            break;
         } else {
             printf("Программа завершена\n");
-            return 0;
+            break;
         }
     }
 }
