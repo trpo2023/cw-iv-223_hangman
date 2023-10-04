@@ -14,10 +14,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Setup libs
-      run: |
-          sudo apt-get install cmake
           
     - name: Check codestyle
       run: |
@@ -25,9 +21,11 @@ jobs:
         git diff --exit-code
 
     - name: Build application
-      run: cmake .| make
+      run: make
+    - name: Build test
+      run: make tests
         
     
       
-    - name: Run tests
-      run: ./bin/test_hangman | ./bin/hangman
+    - name: Run all
+      run: ./bin/tests | ./bin/app
