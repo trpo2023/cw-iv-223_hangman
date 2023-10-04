@@ -3,7 +3,7 @@ main
 *~
 *.exe
 *.out
-bin/*
+bin/*.bin
 *.cmake
 CMakeCache.txt
 CMakeFiles
