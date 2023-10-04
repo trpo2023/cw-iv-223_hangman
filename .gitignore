@@ -3,8 +3,7 @@ main
 *~
 *.exe
 *.out
-hangman
-test_hangman
-cmake_install.cmake
+bin/*
+*.cmake
 CMakeCache.txt
-CTestTestfile.cmake
+CMakeFiles
