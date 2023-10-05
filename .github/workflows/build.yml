@@ -27,5 +27,11 @@ jobs:
         
     
       
-    - name: Run all
-      run: ./bin/tests | ./bin/app
+    - name: Run tests
+      run: ./bin/tests
+
+    - name: Run app
+      run: ./bin/app 
+    
+
+  
