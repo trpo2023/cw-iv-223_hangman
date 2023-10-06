@@ -30,8 +30,6 @@ jobs:
     - name: Run tests
       run: ./bin/tests
 
-    - name: Run app
-      run: ./bin/app 
     
 
   
