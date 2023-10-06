@@ -1,6 +1,5 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -std=c99
-CXXFLAGS = -std=c99 /lib/thirdparty
 TEST_DIR = test
 BIN_DIR = bin
 OBJ_DIR = obj
