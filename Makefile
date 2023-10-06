@@ -3,22 +3,33 @@ CFLAGS = -Wall -Wextra -pedantic -std=c99
 SRC_DIR = src
 TEST_DIR = test
 BIN_DIR = bin
+OBJ_DIR = obj
 
 all: $(BIN_DIR)/app
 
-$(BIN_DIR)/app: obj/main.o obj/hangman.o
-	$(CC) $(CFLAGS) -o bin/app obj/main.o obj/hangman.o
+$(BIN_DIR)/app: $(OBJ_DIR)/main.o $(OBJ_DIR)/hangman.o
+	mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/app $(OBJ_DIR)/main.o $(OBJ_DIR)/hangman.o
 
-obj/main.o: src/main.c
-	$(CC) $(CFLAGS) -o obj/main.o -c src/main.c
+$(OBJ_DIR)/main.o: $(SRC_DIR)/main.c
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -o $(OBJ_DIR)/main.o -c $(SRC_DIR)/main.c
 
-obj/hangman.o: src/hangman.c
-	$(CC) $(CFLAGS) -o obj/hangman.o -c src/hangman.c	
+$(OBJ_DIR)/hangman.o: $(SRC_DIR)/hangman.c
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -o $(OBJ_DIR)/hangman.o -c $(SRC_DIR)/hangman.c	
 
 tests: $(BIN_DIR)/tests
 
-$(BIN_DIR)/tests: obj/test_hangman.o obj/hangman.o
-	$(CC) $(CFLAGS) -o bin/tests obj/test_hangman.o obj/hangman.o
+$(BIN_DIR)/tests: $(OBJ_DIR)/test_hangman.o $(OBJ_DIR)/hangman.o
+	mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/tests $(OBJ_DIR)/test_hangman.o $(OBJ_DIR)/hangman.o
 
-obj/test_hangman.o: test/test_hangman.c
-	$(CC) $(CFLAGS) -o obj/test_hangman.o -c test/test_hangman.c
+$(OBJ_DIR)/test_hangman.o: $(TEST_DIR)/test_hangman.c
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -o $(OBJ_DIR)/test_hangman.o -c $(TEST_DIR)/test_hangman.c
+
+.PHONY: clean
+
+clean:
+	rm -rf $(BIN_DIR) $(OBJ_DIR)
