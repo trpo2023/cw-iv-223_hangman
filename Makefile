@@ -1,35 +1,44 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -std=c99
-SRC_DIR = src
+CXXFLAGS = -std=c99 /lib/thirdparty
 TEST_DIR = test
 BIN_DIR = bin
 OBJ_DIR = obj
 
-all: $(BIN_DIR)/app
+all: $(BIN_DIR)/game
 
-$(BIN_DIR)/app: $(OBJ_DIR)/main.o $(OBJ_DIR)/hangman.o
+$(BIN_DIR)/game: $(OBJ_DIR)/main.o $(OBJ_DIR)/hangman.o
 	mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/app $(OBJ_DIR)/main.o $(OBJ_DIR)/hangman.o
+	$(CC) $(OBJ_DIR)/main.o $(OBJ_DIR)/hangman.o -o $(BIN_DIR)/game 
+	ar rcs lib/mylib.a $(OBJ_DIR)/hangman.o
 
-$(OBJ_DIR)/main.o: $(SRC_DIR)/main.c
+$(OBJ_DIR)/main.o: src/app/main.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $(OBJ_DIR)/main.o -c $(SRC_DIR)/main.c
+	$(CC) $(CXXFLAGS) -c src/app/main.c -o $(OBJ_DIR)/main.o
 
-$(OBJ_DIR)/hangman.o: $(SRC_DIR)/hangman.c
+$(OBJ_DIR)/hangman.o: src/app_lib/hangman.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $(OBJ_DIR)/hangman.o -c $(SRC_DIR)/hangman.c	
+	$(CC) $(CXXFLAGS) -c src/app_lib/hangman.c -o $(OBJ_DIR)/hangman.o
 
-tests: $(BIN_DIR)/tests
+$(OBJ_DIR)/test_hangman.o: test/test_hangman.c
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CXXFLAGS) -c test/test_hangman.c -o $(OBJ_DIR)/test_hangman.o
 
 $(BIN_DIR)/tests: $(OBJ_DIR)/test_hangman.o $(OBJ_DIR)/hangman.o
 	mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/tests $(OBJ_DIR)/test_hangman.o $(OBJ_DIR)/hangman.o
+	$(CC) $(OBJ_DIR)/test_hangman.o lib/mylib.a -o $(BIN_DIR)/tests
 
-$(OBJ_DIR)/test_hangman.o: $(TEST_DIR)/test_hangman.c
-	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $(OBJ_DIR)/test_hangman.o -c $(TEST_DIR)/test_hangman.c
+lib/mylib.a: $(OBJ_DIR)/hangman.o
+	mkdir -p lib
+	ar rcs lib/mylib.a $(OBJ_DIR)/hangman.o
 
-.PHONY: clean
+tests: $(BIN_DIR)/tests
+
+run: $(BIN_DIR)/game
+	./$(BIN_DIR)/game
+
+run_tests: $(BIN_DIR)/tests
+	xvfb-run -a ./$(BIN_DIR)/tests
 
 clean:
-	rm -rf $(BIN_DIR) $(OBJ_DIR)
+	rm -rf $(OBJ_DIR) $(BIN_DIR) lib/mylib.a

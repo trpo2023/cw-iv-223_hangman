@@ -1,6 +1,6 @@
 #define CTEST_MAIN
 #include "../lib/thirdparty/ctest.h"
-#include "../src/hangman.h"
+#include "../src/app_lib/hangman.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

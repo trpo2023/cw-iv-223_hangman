@@ -1,4 +1,4 @@
-#include "hangman.h"
+#include "../app_lib/hangman.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
