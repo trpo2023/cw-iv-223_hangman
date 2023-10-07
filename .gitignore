@@ -5,7 +5,6 @@
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-*.a
 *.lib
 *.so
 bin/*.dll 
