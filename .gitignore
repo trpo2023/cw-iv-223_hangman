@@ -1,0 +1,13 @@
+.vscode/
+*.exe
+*.o
+*.log
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.lib
+*.so
+bin/*.dll 
+bin/*.exe
+*.obj
+compile_commands.json
